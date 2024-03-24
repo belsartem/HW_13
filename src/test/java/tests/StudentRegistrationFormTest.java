@@ -7,6 +7,7 @@ import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import static io.qameta.allure.Allure.step;
 import static utils.RandomDataGenerator.*;
 
+@DisplayName("Registration Form Student Tests")
 public class StudentRegistrationFormTest extends BaseTest {
 
     RegistrationPage registrationPage = new RegistrationPage();
