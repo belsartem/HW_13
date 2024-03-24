@@ -1,9 +1,12 @@
 package tests;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
+import static io.qameta.allure.Allure.step;
 import static utils.RandomDataGenerator.*;
 
 public class StudentRegistrationFormTest extends BaseTest {
@@ -27,8 +30,53 @@ public class StudentRegistrationFormTest extends BaseTest {
 
     @Test
     void testCompleteRegistrationForm() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
 
-        registrationPage
+        step("Open Landing Page", () -> {
+            registrationPage
+                    .openPage();
+        });
+
+        step("Set random data", () -> {
+            registrationPage
+                    .setFirstName(randomFirstName)
+                    .setLastName(randomLastName)
+                    .setEmail(randomEmail)
+                    .setGender(randomGender)
+                    .setPhone(randomPhoneNumber)
+                    .setDateOfBirth(randomDay, randomMonth, randomYear)
+                    .setSubject(randomSubjects)
+                    .setHobby(randomHobbies)
+                    .uploadPicture("Designer.png")
+                    .setAddress(randomAddress)
+                    .setState(randomState)
+                    .setCity(randomCity);
+        });
+
+        step("Click Submit button", () -> {
+            registrationPage
+                    .clickSubmit();
+        });
+
+        step("Checking Result Window appears", () -> {
+            registrationPage
+                    .checkResultWindowAppear();
+        });
+
+        step("Checking Values In Result Window", () -> {
+            registrationPage.checkResultModalWindowComponent("Student Name", randomFirstName + " " + randomLastName)
+                    .checkResultModalWindowComponent("Student Email", randomEmail)
+                    .checkResultModalWindowComponent("Gender", randomGender)
+                    .checkResultModalWindowComponent("Mobile", randomPhoneNumber)
+                    .checkResultModalWindowComponent("Date of Birth", randomDay + " " + randomMonth + "," + randomYear)
+                    .checkResultModalWindowComponent("Subjects", randomSubjects)
+                    .checkResultModalWindowComponent("Hobbies", randomHobbies)
+                    .checkResultModalWindowComponent("Picture", "Designer.png")
+                    .checkResultModalWindowComponent("Address", randomAddress)
+                    .checkResultModalWindowComponent("State and City", randomState + " " + randomCity);
+        });
+
+/*        registrationPage
                 .openPage()
                 .setFirstName(randomFirstName)
                 .setLastName(randomLastName)
@@ -43,9 +91,9 @@ public class StudentRegistrationFormTest extends BaseTest {
                 .setState(randomState)
                 .setCity(randomCity)
                 .clickSubmit()
-                .checkResultWindowAppear();
+                .checkResultWindowAppear();*/
 
-        registrationPage.checkResultModalWindowComponent("Student Name", randomFirstName + " " + randomLastName)
+/*        registrationPage.checkResultModalWindowComponent("Student Name", randomFirstName + " " + randomLastName)
                 .checkResultModalWindowComponent("Student Email", randomEmail)
                 .checkResultModalWindowComponent("Gender", randomGender)
                 .checkResultModalWindowComponent("Mobile", randomPhoneNumber)
@@ -54,7 +102,7 @@ public class StudentRegistrationFormTest extends BaseTest {
                 .checkResultModalWindowComponent("Hobbies", randomHobbies)
                 .checkResultModalWindowComponent("Picture", "Designer.png")
                 .checkResultModalWindowComponent("Address", randomAddress)
-                .checkResultModalWindowComponent("State and City", randomState + " " + randomCity);
+                .checkResultModalWindowComponent("State and City", randomState + " " + randomCity);*/
     }
 
     @Test
