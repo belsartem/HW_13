@@ -5,7 +5,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
-import io.qameta.allure.Step;
+import io.qameta.allure.Owner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -44,7 +44,8 @@ public class StudentRegistrationFormTest extends BaseTest {
             randomCity = getRandomCity(randomState);
 
     @Test
-    @Step("Checking Completely Populated Data")
+    @DisplayName("Checking Completely Populated Data")
+    @Owner("abels")
     void testCompleteRegistrationForm() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -130,7 +131,8 @@ public class StudentRegistrationFormTest extends BaseTest {
     }
 
     @Test
-    @Step("Checking Only Required Populated Data")
+    @DisplayName("Checking Only Required Populated Data")
+    @Owner("abels")
     void testOnlyRequiredRegistrationForm() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -204,7 +206,8 @@ public class StudentRegistrationFormTest extends BaseTest {
 
 
     @Test
-    @Step("Checking Empty Data")
+    @DisplayName("Checking Empty Data")
+    @Owner("abels")
     void testEmptyFields () {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -247,7 +250,8 @@ public class StudentRegistrationFormTest extends BaseTest {
     }
 
     @Test
-    @Step("Checking No Name and Last Name Populated Data")
+    @DisplayName("Checking No Name and Last Name Populated Data")
+    @Owner("abels")
     void testNoNameAndLastName () {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
