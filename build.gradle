@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 group = 'qa.abels'
@@ -10,8 +10,15 @@ repositories {
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation (
+            'com.github.javafaker:javafaker:1.0.2',
+            "com.codeborne:selenide:7.0.4",
+            "org.junit.jupiter:junit-jupiter:5.10.1"
+    )
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
 test {
