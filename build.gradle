@@ -41,6 +41,8 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 
-test {
-    useJUnitPlatform()
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
 }
