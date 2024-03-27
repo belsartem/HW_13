@@ -8,6 +8,7 @@ import io.qameta.allure.Attachment;
 import io.qameta.allure.Owner;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -46,6 +47,7 @@ public class StudentRegistrationFormTest extends BaseTest {
     @Test
     @DisplayName("Checking Completely Populated Data")
     @Owner("abels")
+    @Tag("demoqa")
     void testCompleteRegistrationForm() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -133,6 +135,7 @@ public class StudentRegistrationFormTest extends BaseTest {
     @Test
     @DisplayName("Checking Only Required Populated Data")
     @Owner("abels")
+    @Tag("demoqa")
     void testOnlyRequiredRegistrationForm() {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -208,6 +211,7 @@ public class StudentRegistrationFormTest extends BaseTest {
     @Test
     @DisplayName("Checking Empty Data")
     @Owner("abels")
+    @Tag("demoqa")
     void testEmptyFields () {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -252,6 +256,7 @@ public class StudentRegistrationFormTest extends BaseTest {
     @Test
     @DisplayName("Checking No Name and Last Name Populated Data")
     @Owner("abels")
+    @Tag("demoqa")
     void testNoNameAndLastName () {
 
         SelenideLogger.addListener("allure", new AllureSelenide());
