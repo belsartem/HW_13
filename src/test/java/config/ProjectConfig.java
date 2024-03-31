@@ -2,7 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config/${environment}.properties")
+@Config.Sources("classpath:config/${env}.properties")
 
 public interface ProjectConfig extends Config {
 
