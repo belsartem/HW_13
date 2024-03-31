@@ -10,12 +10,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
 
-    public RegistrationPage openPage() {
+    public void openPage() {
         String registrationPageURL = "/automation-practice-form";
         open(registrationPageURL);
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        return this;
     }
 
     private final SelenideElement
@@ -32,7 +31,7 @@ public class RegistrationPage {
             chooseState = $("#state"),
             chooseCity = $("#city"),
             submitButton = $("#submit"),
-            resultWindow = $("#userForm");
+            resultWindow = $(".modal-dialog");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultModalWindowComponent resultModalWindowComponent = new ResultModalWindowComponent();
@@ -94,15 +93,13 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setCity(String value) {
+    public void setCity(String value) {
         chooseCity.click();
         chooseCity.$(byText(value)).click();
-        return this;
     }
 
-    public RegistrationPage clickSubmit() {
+    public void clickSubmit() {
         submitButton.click();
-        return this;
     }
 
     public void checkResultWindowAppear() {
