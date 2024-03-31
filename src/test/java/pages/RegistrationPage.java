@@ -31,7 +31,7 @@ public class RegistrationPage {
             chooseState = $("#state"),
             chooseCity = $("#city"),
             submitButton = $("#submit"),
-            resultWindow = $(".modal-dialog");
+            resultWindow = $(".modal-content");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultModalWindowComponent resultModalWindowComponent = new ResultModalWindowComponent();
