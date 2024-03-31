@@ -32,7 +32,7 @@ public class RegistrationPage {
             chooseState = $("#state"),
             chooseCity = $("#city"),
             submitButton = $("#submit"),
-            resultWindow = $(".modal-dialog");
+            resultWindow = $("#userForm");
 
     CalendarComponent calendarComponent = new CalendarComponent();
     ResultModalWindowComponent resultModalWindowComponent = new ResultModalWindowComponent();
