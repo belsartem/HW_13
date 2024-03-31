@@ -3,10 +3,12 @@ package tests;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import config.ProjectConfig;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Owner;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -22,17 +24,18 @@ import static utils.RandomDataGenerator.*;
 @DisplayName("Registration Form Student Tests")
 public class StudentRegistrationFormTest extends BaseTest {
 
+    ProjectConfig projectConfig = ConfigFactory.create(ProjectConfig.class);
     RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
 
     @Attachment(value = "Screenshot of the step", type = "image/png", fileExtension = "png")
-    public byte[] attachScreenshot() {
-        return ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    public void attachScreenshot() {
+        ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    String randomFirstName = faker.name().firstName(),
-            randomLastName = faker.name().lastName(),
-            randomEmail = faker.internet().emailAddress(),
+    String randomFirstName = projectConfig.firstName(),
+            randomLastName = projectConfig.lastName(),
+            randomEmail = projectConfig.userEmail(),
             randomGender = getRandomGender(),
             randomPhoneNumber = faker.phoneNumber().subscriberNumber(10),
             randomDay = getRandomDay(),
