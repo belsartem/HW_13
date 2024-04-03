@@ -28,7 +28,7 @@ public class BaseTest {
 
         DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class, System.getProperties());
 
-        System.setProperty("environment", System.getProperty("environment", "prod"));
+        System.setProperty("environment", System.getProperty("env", "prod"));
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
