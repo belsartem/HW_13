@@ -28,9 +28,20 @@ public class StudentRegistrationFormTest extends BaseTest {
     RegistrationPage registrationPage = new RegistrationPage();
     Faker faker = new Faker();
 
-    @Attachment(value = "Screenshot of the step", type = "image/png", fileExtension = "png")
+    @Attachment(value = "Screenshot of the step",
+            type = "image/png",
+            fileExtension = "png")
     public void attachScreenshot() {
         ((TakesScreenshot) WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
+    }
+
+    public void attachSources() {
+        Allure.getLifecycle().addAttachment(
+                "Sources of the page",
+                "text/html",
+                "html",
+                WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
+        );
     }
 
     String randomFirstName = projectConfig.firstName(),
@@ -59,12 +70,13 @@ public class StudentRegistrationFormTest extends BaseTest {
             registrationPage
                     .openPage();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Set random data", () -> {
@@ -82,36 +94,39 @@ public class StudentRegistrationFormTest extends BaseTest {
                     .setState(randomState)
                     .setCity(randomCity);
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Click Submit button", () -> {
             registrationPage
                     .clickSubmit();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking Result Window appears", () -> {
             registrationPage
                     .checkResultWindowAppear();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking Values In Result Window", () -> {
@@ -126,12 +141,13 @@ public class StudentRegistrationFormTest extends BaseTest {
                     .checkResultModalWindowComponent("Address", randomAddress)
                     .checkResultModalWindowComponent("State and City", randomState + " " + randomCity);
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
     }
 
@@ -147,12 +163,13 @@ public class StudentRegistrationFormTest extends BaseTest {
             registrationPage
                     .openPage();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Partially set random data to only required fields", () -> {
@@ -163,36 +180,39 @@ public class StudentRegistrationFormTest extends BaseTest {
                     .setPhone(randomPhoneNumber);
 
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Click Submit button", () -> {
             registrationPage
                     .clickSubmit();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking Result Modal Window is appeared", () -> {
             registrationPage
                     .checkResultWindowAppear();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking results on Modal Window", () -> {
@@ -201,12 +221,13 @@ public class StudentRegistrationFormTest extends BaseTest {
                     .checkResultModalWindowComponent("Gender", randomGender)
                     .checkResultModalWindowComponent("Mobile", randomPhoneNumber);
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
     }
 
@@ -223,36 +244,39 @@ public class StudentRegistrationFormTest extends BaseTest {
             registrationPage
                     .openPage();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Click Submit button", () -> {
             registrationPage
                     .clickSubmit();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking Result Window Is Not Appeared", () -> {
             registrationPage
                     .checkResultWindowAbsent();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
     }
 
@@ -268,12 +292,13 @@ public class StudentRegistrationFormTest extends BaseTest {
                 registrationPage
                         .openPage();
                 attachScreenshot();
-                Allure.getLifecycle().addAttachment(
+                attachSources();
+/*                Allure.getLifecycle().addAttachment(
                         "Sources of the page",
                         "text/html",
                         "html",
                         WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-                );
+                );*/
             });
 
         step("Populate only Gender and Phone Number", () -> {
@@ -281,36 +306,39 @@ public class StudentRegistrationFormTest extends BaseTest {
                     .setGender(randomGender)
                     .setPhone(randomPhoneNumber);
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Click Submit button", () -> {
             registrationPage
                     .clickSubmit();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
 
         step("Checking Result Window Is Not Appeared", () -> {
             registrationPage
                     .checkResultWindowAbsent();
             attachScreenshot();
-            Allure.getLifecycle().addAttachment(
+            attachSources();
+/*            Allure.getLifecycle().addAttachment(
                     "Sources of the page",
                     "text/html",
                     "html",
                     WebDriverRunner.getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8)
-            );
+            );*/
         });
     }
 }

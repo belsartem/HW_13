@@ -2,7 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:config/${env}.properties")
+@Config.Sources("classpath:config/${environment}.properties")
 
 public interface ProjectConfig extends Config {
 
@@ -14,6 +14,7 @@ public interface ProjectConfig extends Config {
 
     @Key("user.email")
     String userEmail();
+
     @Key("image.name")
     String imageName();
 }

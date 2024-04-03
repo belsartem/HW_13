@@ -18,28 +18,20 @@ import java.util.Map;
 
 @Config.LoadPolicy(Config.LoadType.FIRST)
 @Config.Sources({
-        "classpath:config/${env}.properties",
-        "classpath:config/stage.properties"
+        "classpath:config/${environment}.properties"
+        //"classpath:config/stage.properties"
 })
 public class BaseTest {
-
-/*    private ProjectConfig projectConfig;
-
-    @BeforeEach
-    void setTestData() {
-        System.setProperty("env", System.getProperty("env", "test"));
-        projectConfig = ConfigFactory.create(ProjectConfig.class);
-    }*/
 
     @BeforeAll
     static void beforeAll() {
 
-        DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class);
-        //System.setProperty("environment", System.getProperty("environment", "stage"));
+        DriverConfig driverConfig = ConfigFactory.create(DriverConfig.class, System.getProperties());
+
+        System.setProperty("environment", System.getProperty("environment", "prod"));
 
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-
         Configuration.browser = driverConfig.browserName();
         Configuration.browserVersion = driverConfig.browserVersion();
         Configuration.browserSize = driverConfig.browserSize();
